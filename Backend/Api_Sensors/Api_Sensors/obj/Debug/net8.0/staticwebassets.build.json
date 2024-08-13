@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "RhYdC5zbdlnoFdynP+ITHu1EZq26DdQBrY1xDv0qdk8=",
+  "Source": "Api_Sensors",
+  "BasePath": "_content/Api_Sensors",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

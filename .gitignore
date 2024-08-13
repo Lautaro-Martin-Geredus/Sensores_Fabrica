@@ -1,0 +1,9 @@
+# Ignorar el directorio .vs de Visual Studio
+.vs/
+
+# Ignorar archivos de compilación
+*.class
+*.log
+
+# Ignorar archivos temporales
+*.tmp
