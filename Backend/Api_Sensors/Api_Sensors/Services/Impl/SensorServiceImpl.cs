@@ -12,12 +12,12 @@ namespace Api_Sensors.Services.Impl
             _sensorRepository = sensorRepository;
         }
 
-        public Task<SensorDto> CreateSensor(SensorDto sensorDto)
+        public async Task<SensorDto> CreateSensor(SensorDto sensorDto)
         {
-            
+            return await _sensorRepository.PostSensor(sensorDto);
         }
 
-        public Task<SensorDto> DeleteSensor(string name)
+        /*public Task<SensorDto> DeleteSensor(string name)
         {
             
         }
@@ -30,11 +30,17 @@ namespace Api_Sensors.Services.Impl
         public Task<SensorDto> GetSensorByName(string name)
         {
             
-        }
+        }*/
 
-        public Task<List<SensorDto>> GetSensorsAsync()
+        public async Task<List<SensorDto>> GetSensorsAsync()
         {
-            
+            var sensors = await _sensorRepository.GetSensors();
+            if(sensors == null)
+            {
+                throw new Exception("Sensors not found");
+            }
+
+            return sensors;
         }
     }
 }

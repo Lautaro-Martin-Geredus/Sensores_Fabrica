@@ -1,4 +1,8 @@
 using Api_Sensors.Models;
+using Api_Sensors.Repository;
+using Api_Sensors.Repository.Impl;
+using Api_Sensors.Services;
+using Api_Sensors.Services.Impl;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +20,9 @@ builder.Services.AddDbContext<ApiSensoresContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("ConexionDB"));
 });
+
+builder.Services.AddScoped<ISensorRepository, SensorRepositoryImpl>();
+builder.Services.AddScoped<ISensorService, SensorServiceImpl>();
 
 var app = builder.Build();
 
