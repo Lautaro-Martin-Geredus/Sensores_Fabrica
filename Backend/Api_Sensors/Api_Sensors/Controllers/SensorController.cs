@@ -76,5 +76,19 @@ namespace Api_Sensors.Controllers
                 return NotFound(ex.Message);
             }
         }
+
+        [HttpDelete("DeleteSensor")]
+        public async Task<ActionResult<bool>> DeleteSensor(string name)
+        {
+            try
+            {
+                var sensorDeleted = await _sensorService.DeleteSensor(name);
+                return Ok(sensorDeleted);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }

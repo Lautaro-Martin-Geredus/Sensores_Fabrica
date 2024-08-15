@@ -89,5 +89,19 @@ namespace Api_Sensors.Repository.Impl
                 Unit = sensor.Unit
             };
         }
+
+        public async Task<bool> DeleteSensor(string name)
+        {
+            var sensor = await _context.Sensors.FirstOrDefaultAsync(s => s.Name == name);
+            if (sensor == null)
+            {
+                return false; 
+            }
+
+            _context.Remove(sensor);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

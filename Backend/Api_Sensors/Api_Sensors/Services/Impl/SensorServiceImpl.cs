@@ -17,14 +17,14 @@ namespace Api_Sensors.Services.Impl
             return await _sensorRepository.PostSensor(sensorDto);
         }
 
-        /*public Task<SensorDto> DeleteSensor(string name)
+        public async Task<bool> DeleteSensor(string name)
         {
-            
-        }*/
+            return await _sensorRepository.DeleteSensor(name);
+        }
 
-        public Task<SensorDto> EditSensor(Guid id, SensorDto sensorDto)
+        public async Task<SensorDto> EditSensor(Guid id, SensorDto sensorDto)
         {
-            return _sensorRepository.PutSensor(id, sensorDto);
+            return await _sensorRepository.PutSensor(id, sensorDto);
         }
 
         public async Task<SensorDto> GetSensorByName(string name)
