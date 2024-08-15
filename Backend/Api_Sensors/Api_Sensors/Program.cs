@@ -24,6 +24,9 @@ builder.Services.AddDbContext<ApiSensoresContext>(option =>
 builder.Services.AddScoped<ISensorRepository, SensorRepositoryImpl>();
 builder.Services.AddScoped<ISensorService, SensorServiceImpl>();
 
+builder.Services.AddScoped<IUserRepository, UserRepositoryImpl>();
+builder.Services.AddScoped<IUserService, UserServiceImpl>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
