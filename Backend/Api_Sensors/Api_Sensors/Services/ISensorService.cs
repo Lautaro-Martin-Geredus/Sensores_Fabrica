@@ -8,9 +8,9 @@ namespace Api_Sensors.Services
 
         Task<SensorDto> CreateSensor(SensorDto sensorDto);
 
-        /*Task<SensorDto> GetSensorByName(string name);
+        Task<SensorDto> GetSensorByName(string name);
 
-        Task<SensorDto> EditSensor(SensorDto sensorDto);
+        /*Task<SensorDto> EditSensor(SensorDto sensorDto);
 
         Task<SensorDto> DeleteSensor(string name);*/
     }

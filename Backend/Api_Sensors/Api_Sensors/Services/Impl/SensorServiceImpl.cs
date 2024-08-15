@@ -25,12 +25,12 @@ namespace Api_Sensors.Services.Impl
         public Task<SensorDto> EditSensor(SensorDto sensorDto)
         {
             
-        }
-
-        public Task<SensorDto> GetSensorByName(string name)
-        {
-            
         }*/
+
+        public async Task<SensorDto> GetSensorByName(string name)
+        {
+            return await _sensorRepository.GetSensorByName(name);
+        }
 
         public async Task<List<SensorDto>> GetSensorsAsync()
         {

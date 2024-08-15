@@ -51,5 +51,21 @@ namespace Api_Sensors.Repository.Impl
                 Unit = sensor.Unit
             };
         }
+
+        public async Task<SensorDto> GetSensorByName(string name)
+        {
+            var sensor = await _context.Sensors.FirstOrDefaultAsync(s => s.Name == name);
+            if(sensor == null)
+            {
+                throw new InvalidOperationException($"There is no sensor with that name: {name}!");
+            }
+
+            return new SensorDto
+            {
+                Name = sensor.Name,
+                Description = sensor.Description,
+                Unit = sensor.Unit
+            };
+        }
     }
 }

@@ -48,10 +48,18 @@ namespace Api_Sensors.Controllers
             }
         }
 
-        /*[HttpGet("GetSensorByName")]
+        [HttpGet("GetSensorByName")]
         public async Task<ActionResult<SensorDto>> GetSensorByName(string name)
         {
-
-        }*/
+            try
+            {
+                var sensorName = await _sensorService.GetSensorByName(name);
+                return Ok(sensorName);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

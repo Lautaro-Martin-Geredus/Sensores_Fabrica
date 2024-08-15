@@ -7,5 +7,7 @@ namespace Api_Sensors.Repository
         Task<List<SensorDto>> GetSensors();
 
         Task<SensorDto> PostSensor(SensorDto sensorDto);
+
+        Task<SensorDto> GetSensorByName(string name);
     }
 }
