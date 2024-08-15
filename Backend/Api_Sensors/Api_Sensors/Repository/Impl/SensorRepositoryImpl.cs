@@ -68,19 +68,18 @@ namespace Api_Sensors.Repository.Impl
             };
         }
 
-        public async Task<SensorDto> PutSensor(SensorDto sensorDto)
+        public async Task<SensorDto> PutSensor(Guid id, SensorDto sensorDto)
         {
-            var sensor = await _context.Sensors.FirstOrDefaultAsync(s => s.Name == sensorDto.Name);
+            var sensor = await _context.Sensors.FirstOrDefaultAsync(s => s.Id.Equals(id));
             if (sensor == null)
             {
-                throw new InvalidOperationException($"There is no sensor with that name: {sensorDto.Name}!");
+                throw new InvalidOperationException("There is no sensor with that ID!");
             }
-
+            
             sensor.Name = sensorDto.Name;
             sensor.Description = sensorDto.Description;
             sensor.Unit = sensorDto.Unit;
 
-            _context.Sensors.Add(sensor);
             await _context.SaveChangesAsync();
 
             return new SensorDto
