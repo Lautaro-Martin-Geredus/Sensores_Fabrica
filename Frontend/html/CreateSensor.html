@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Sensor</title>
+    <title>Crear Sensor</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -41,12 +41,8 @@
     </nav>
 
     <div class="container mt-5">
-        <h2 class="mb-4">Editar Sensor</h2>
-        <form id="editSensorForm">
-            <div class="form-group">
-                <label for="sensorId">Sensor ID</label>
-                <input type="text" class="form-control form-control-lg" id="sensorId" placeholder="Ingrese el ID del sensor" required>
-            </div>
+        <h2 class="mb-4">Crear Sensor</h2>
+        <form id="createSensorForm">
             <div class="form-group">
                 <label for="name">Nombre</label>
                 <input type="text" class="form-control" id="name" placeholder="Nombre del sensor" required>
@@ -62,32 +58,32 @@
                     <option value="FAHRENHEIT">Fahrenheit</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <button type="submit" class="btn btn-primary">Crear Sensor</button>
         </form>
     </div>
 
     <script>
-        $("#editSensorForm").on("submit", function(event) 
+        $("#createSensorForm").on("submit", function(event) 
         {
             event.preventDefault();
 
-            const sensorId = $("#sensorId").val();
             const name = $("#name").val();
             const description = $("#description").val();
             const unit = $("#unit").val();
 
             $.ajax({
-                type: "PUT",
-                url: `https://localhost:7058/api/Sensor/EditSensor?id=${sensorId}`,
+                type: "POST",
+                url: "https://localhost:7058/api/Sensor/CreateSensors",
                 contentType: "application/json",
                 data: JSON.stringify({ name: name, description: description, unit: unit }),
-                success: function(response) {
-
-                    alert("Sensor editado con éxito");
+                success: function(response) 
+                {
+                    alert("Sensor creado con éxito");
+                    window.location.href = "Sensors.html";  
                 },
                 error: function(xhr, status, error) 
                 {
-                    alert("Error al editar el sensor: " + xhr.responseText);
+                    alert("Error al crear el sensor: " + xhr.responseText);
                 }
             });
         });

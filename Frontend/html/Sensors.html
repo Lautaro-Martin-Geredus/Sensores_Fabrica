@@ -38,9 +38,6 @@
                     <a class="nav-link" href="Welcome.html">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Home.html">Home</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="Sensors.html">Sensors</a>
                 </li>
                 <li class="nav-item">
@@ -65,6 +62,7 @@
                 
             </tbody>
         </table>
+        <button class="btn btn-primary" onclick="window.location.href='CreateSensor.html'">Crear Sensor</button>
     </div>
 
     <script>
@@ -88,7 +86,7 @@
                                 <td>${s.description}</td>
                                 <td>${s.unit}</td>
                                 <td>
-                                    <a href="EditSensor.html?id=${s.id}" class="btn btn-primary btn-sm">Editar</a>
+                                    <a href="EditSensor.html" class="btn btn-primary btn-sm">Editar</a>
                                     <button class="btn btn-delete btn-sm" onclick="deleteSensor('${encodeURIComponent(s.name)}')">Eliminar</button>
                                 </td>
                             </tr>
