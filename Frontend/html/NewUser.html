@@ -9,7 +9,40 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+<style>
+    .navbar {
+        background-color: #007bff; 
+    }
+    .navbar-nav .nav-link {
+        color: white !important; 
+    }
+    .navbar-nav .nav-link:hover {
+        color: #f8f9fa !important; 
+    }
+</style>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"> 
+                <li class="nav-item">
+                    <a class="nav-link" href="Welcome.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Sensors.html">Sensors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
         <div id="successMessage" class="alert alert-success mt-3" style="display:none;"></div>
         <div id="errorMessage" class="alert alert-danger mt-3" style="display:none;"></div>
@@ -31,6 +64,10 @@
                         <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
                     </div>
                     <div class="form-group">
+                        <label for="confirmPassword">Confirmar Contraseña</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Contraseña" required>
+                    </div>
+                    <div class="form-group">
                         <label for="description">Descripción</label>
                         <textarea class="form-control" id="description" placeholder="Descripción"></textarea>
                     </div>
@@ -48,7 +85,15 @@
         const name = $("#name").val();
         const email = $("#email").val();
         const password = $("#password").val();
+        const confirmPassword = $("#confirmPassword").val();
         const description = $("#description").val();
+
+        if (password !== confirmPassword) 
+        {
+                $("#errorMessage").text("Las contraseñas no coinciden").show();
+                $("#successMessage").hide();
+                return;
+            }
 
         $.ajax(
             {
