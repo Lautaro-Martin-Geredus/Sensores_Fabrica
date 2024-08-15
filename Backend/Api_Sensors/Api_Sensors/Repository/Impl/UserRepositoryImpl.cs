@@ -13,9 +13,9 @@ namespace Api_Sensors.Repository.Impl
             _context = context;
         }
 
-        public async Task<bool> LoggUser(string email, int password)
+        public async Task<bool> LoggUser(LoginRequest loginRequest)
         {
-            var result = await _context.Users.FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
+            var result = await _context.Users.FirstOrDefaultAsync(x => x.Email == loginRequest.Email && x.Password == loginRequest.Password);
             if(result == null)
             {
                 throw new InvalidOperationException("There is no registered user with that email");

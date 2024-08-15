@@ -17,10 +17,22 @@ namespace Api_Sensors.Controllers
         }
 
         [HttpPost("LoggingUser")]
-        public async Task<ActionResult<bool>> LoggingUser(string email, int password)
+        public async Task<ActionResult<bool>> LoggingUser([FromBody] LoginRequest loginRequest)
         {
-            var result = await _userService.LoggUser(email, password);
-            return Ok(result);
+            if (loginRequest == null || string.IsNullOrEmpty(loginRequest.Email) || loginRequest.Password == 0)
+            {
+                return BadRequest("Invalid login request data.");
+            }
+
+            try
+            {
+                var result = await _userService.LoggUser(loginRequest);
+                return Ok(result);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Unauthorized(new { message = ex.Message });
+            }
         }
 
         [HttpPost("CreateUser")]

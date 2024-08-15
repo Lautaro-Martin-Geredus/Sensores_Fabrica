@@ -18,9 +18,9 @@ namespace Api_Sensors.Services.Impl
             return await _userRepository.CreateUser(userDto);
         }
 
-        public async Task<bool> LoggUser(string email, int password)
+        public async Task<bool> LoggUser(LoginRequest loginRequest)
         {
-            return await _userRepository.LoggUser(email, password);
+            return await _userRepository.LoggUser(loginRequest);
         }
     }
 }

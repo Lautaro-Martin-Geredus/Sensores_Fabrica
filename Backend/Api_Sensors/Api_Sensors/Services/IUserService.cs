@@ -7,6 +7,6 @@ namespace Api_Sensors.Services
     {
         Task<UserDto> PostUser(UserDto userDto);
 
-        Task<bool> LoggUser(string email, int password);
+        Task<bool> LoggUser(LoginRequest loginRequest);
     }
 }

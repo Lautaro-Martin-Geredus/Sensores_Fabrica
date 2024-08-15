@@ -6,6 +6,6 @@ namespace Api_Sensors.Repository
     {
         Task<UserDto> CreateUser(UserDto userDto);
 
-        Task<bool> LoggUser(string email, int password);
+        Task<bool> LoggUser(LoginRequest loginRequest);
     }
 }
