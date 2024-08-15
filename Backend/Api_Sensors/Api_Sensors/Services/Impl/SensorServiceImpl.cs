@@ -20,12 +20,12 @@ namespace Api_Sensors.Services.Impl
         /*public Task<SensorDto> DeleteSensor(string name)
         {
             
-        }
+        }*/
 
         public Task<SensorDto> EditSensor(SensorDto sensorDto)
         {
-            
-        }*/
+            return _sensorRepository.PutSensor(sensorDto);
+        }
 
         public async Task<SensorDto> GetSensorByName(string name)
         {

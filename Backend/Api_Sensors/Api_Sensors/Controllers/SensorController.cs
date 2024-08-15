@@ -61,5 +61,24 @@ namespace Api_Sensors.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPut("EditSensor")]
+        public async Task<ActionResult<SensorDto>> PutSensor([FromBody] SensorDto sensorDto)  // Arreglar metodo, que pida un name para editar.
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var resultDto = await _sensorService.EditSensor(sensorDto);
+                return Ok(resultDto);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }

@@ -67,5 +67,28 @@ namespace Api_Sensors.Repository.Impl
                 Unit = sensor.Unit
             };
         }
+
+        public async Task<SensorDto> PutSensor(SensorDto sensorDto)
+        {
+            var sensor = await _context.Sensors.FirstOrDefaultAsync(s => s.Name == sensorDto.Name);
+            if (sensor == null)
+            {
+                throw new InvalidOperationException($"There is no sensor with that name: {sensorDto.Name}!");
+            }
+
+            sensor.Name = sensorDto.Name;
+            sensor.Description = sensorDto.Description;
+            sensor.Unit = sensorDto.Unit;
+
+            _context.Sensors.Add(sensor);
+            await _context.SaveChangesAsync();
+
+            return new SensorDto
+            {
+                Name= sensor.Name,
+                Description = sensor.Description,
+                Unit = sensor.Unit
+            };
+        }
     }
 }
