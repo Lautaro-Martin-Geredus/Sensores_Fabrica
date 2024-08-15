@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensors List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .navbar {
+        background-color: #007bff; 
+    }
+    .navbar-nav .nav-link {
+        color: white !important; 
+    }
+    .navbar-nav .nav-link:hover {
+        color: #f8f9fa !important; 
+    }
+    .btn-delete {
+        background-color: #dc3545;
+        color: white;
+    }
+    .btn-delete:hover {
+        background-color: #c82333;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Welcome.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Sensors.html">Sensors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <h2>Lista de Sensores</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Unidad</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody id="sensorsTableBody">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function() 
+        {
+            $.ajax(
+                {
+                type: "GET",
+                url: "https://localhost:7058/api/Sensor/GetSensors",
+                success: function(response) 
+                {
+                    const sensors = response;
+                    let tableBody = $('#sensorsTableBody');
+                    tableBody.empty();
+
+                    sensors.forEach(s => 
+                    {
+                        tableBody.append(`
+                            <tr>
+                                <td>${s.name}</td>
+                                <td>${s.description}</td>
+                                <td>${s.unit}</td>
+                                <td>
+                                    <a href="EditSensor.html?id=${s.id}" class="btn btn-primary btn-sm">Editar</a>
+                                    <button class="btn btn-delete btn-sm" onclick="deleteSensor('${encodeURIComponent(s.name)}')">Eliminar</button>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error al cargar los sensores: " + error);
+                }
+            });
+        });
+
+        function deleteSensor(sensorName)
+        {
+            if(confirm("Estas seguro de eliminar este Sensor?"))
+            {
+                $.ajax({
+                    type: "DELETE",
+                    url: `https://localhost:7058/api/Sensor/DeleteSensor?name=${sensorName}`,
+                    success: function(response)
+                    {
+                        alert("Sensor eliminado exitosamente.");
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        alert("Error al eliminar el sensor: " + xhr.responseText);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

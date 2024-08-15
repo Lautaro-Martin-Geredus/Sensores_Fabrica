@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Sensor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Welcome.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Sensors.html">Sensors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card mt-5">
+            <div class="card-header">Editar Sensor</div>
+            <div class="card-body">
+                <form id="editSensorForm">
+                    <div class="form-group">
+                        <label for="sensorName">Nombre del Sensor</label>
+                        <input type="text" class="form-control" id="sensorName" placeholder="Nombre del Sensor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sensorDescription">Descripcion</label>
+                        <input type="text" class="form-control" id="sensorDescription" placeholder="Descripcion del Sensor", required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sensorUnit">Unidad</label>
+                        <select class="form-control" id="sensorUnit">
+                            <option value="CELSIUS">Celsius</option>
+                            <option value="FAHRENHEIT">Fahrenheit</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const sensorId = urlParams.get('id');
+
+        $("#editSensorForm").on("submit", function(event)
+      {
+        event.preventDefault();
+
+        const sensorData = 
+        {
+            id: sensorId,
+            name: $("#sensorName").val(),
+            description: $("#sensorDescription").val(),
+            unit: $("#sensorUnit").val()
+        };
+
+        $.ajax({
+            type: "PUT",
+            url: `https://localhost:7058/api/Sensor/EditSensor?id=${sensorId}`,
+            contentType: "application/json",
+            data: JSON.stringify(sensorData),
+            success: function(response)
+            {
+                alert("Sensor actualizado exitosamente");
+                window.location.href = "Sensors.html";
+            },
+                error: function(xhr, status, error) 
+                {
+                    alert("Error al actualizar el sensor: " + xhr.responseText);
+                }
+        });
+     });
+    </script>
+</body>
+</html>
