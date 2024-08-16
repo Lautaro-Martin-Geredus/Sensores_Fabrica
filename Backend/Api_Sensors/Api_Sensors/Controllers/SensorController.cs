@@ -63,11 +63,11 @@ namespace Api_Sensors.Controllers
         }
 
         [HttpPut("EditSensor")]
-        public async Task<ActionResult<SensorDto>> PutSensor(Guid id,[FromBody] SensorDto sensorDto)  
+        public async Task<ActionResult<SensorDto>> PutSensor(string name, [FromBody] SensorDto sensorDto)  
         {
             try
             {
-                var updatedSensor = await _sensorService.EditSensor(id, sensorDto);
+                var updatedSensor = await _sensorService.EditSensor(name, sensorDto);
 
                 return Ok(updatedSensor);
             }

@@ -22,9 +22,9 @@ namespace Api_Sensors.Services.Impl
             return await _sensorRepository.DeleteSensor(name);
         }
 
-        public async Task<SensorDto> EditSensor(Guid id, SensorDto sensorDto)
+        public async Task<SensorDto> EditSensor(string name, SensorDto sensorDto)
         {
-            return await _sensorRepository.PutSensor(id, sensorDto);
+            return await _sensorRepository.PutSensor(name, sensorDto);
         }
 
         public async Task<SensorDto> GetSensorByName(string name)

@@ -10,7 +10,7 @@ namespace Api_Sensors.Services
 
         Task<SensorDto> GetSensorByName(string name);
 
-        Task<SensorDto> EditSensor(Guid id, SensorDto sensorDto);
+        Task<SensorDto> EditSensor(string name, SensorDto sensorDto);
 
         Task<bool> DeleteSensor(string name);
     }
