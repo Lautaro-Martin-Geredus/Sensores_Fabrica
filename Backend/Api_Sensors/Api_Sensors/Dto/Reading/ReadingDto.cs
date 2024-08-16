@@ -4,7 +4,7 @@ namespace Api_Sensors.Dto.Reading
 {
     public class ReadingDto
     {
-        public SensorDto SensorDto { get; set; }
+        public string SensorName{ get; set; }
 
         public DateOnly ReadingDate { get; set; }
 

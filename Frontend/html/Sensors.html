@@ -219,6 +219,7 @@
         $(document).on('click', '.delete-btn', function() 
         {
             const sensorName = $(this).data('name');
+            
             if(confirm("¿Esta seguro de eliminar este Sensor?"))
             {
                 $.ajax(
