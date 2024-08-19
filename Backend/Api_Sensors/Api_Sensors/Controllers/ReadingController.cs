@@ -39,5 +39,23 @@ namespace Api_Sensors.Controllers
             }
         }
 
+        [HttpPost("CreateReading")]
+        public async Task<ActionResult<ReadingDto>> CreateReading([FromQuery] string sensorName)
+        {
+            try
+            {
+                var readingDto = await _readingService.CreateReading(sensorName);
+
+                return Ok(readingDto);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }

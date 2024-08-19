@@ -32,5 +32,36 @@ namespace Api_Sensors.Repository.Impl
 
             return readingDto;
         }
+
+        public async Task<ReadingDto> CreateReading(string sensorName)
+        {
+            var sensor = await _context.Sensors.FirstOrDefaultAsync(s => s.Name == sensorName);
+            if(sensor == null)
+            {
+                throw new InvalidOperationException("Sensor not found");
+            }
+
+            var random = new Random();
+            double randomValue = random.NextDouble() * 100;
+            double roundedValue = Math.Round(randomValue, 1);
+
+            var reading = new Reading
+            {
+                Id = Guid.NewGuid(),
+                Sensor = sensor,
+                ReadingDate = DateOnly.FromDateTime(DateTime.UtcNow),
+                Value = roundedValue
+            };
+
+            _context.Readings.Add(reading);
+            await _context.SaveChangesAsync();
+
+            return new ReadingDto
+            {
+                SensorName = sensor.Name,
+                ReadingDate = DateOnly.FromDateTime(DateTime.UtcNow),
+                Value = roundedValue
+            };
+        }
     }
 }

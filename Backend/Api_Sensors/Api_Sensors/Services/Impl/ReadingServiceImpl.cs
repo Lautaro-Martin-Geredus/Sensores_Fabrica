@@ -16,5 +16,10 @@ namespace Api_Sensors.Services.Impl
         {
             return await _readingRepository.GetReadingsByDates(startDate, endDate);
         }
+
+        public async Task<ReadingDto> CreateReading(string sensorName)
+        {
+            return await _readingRepository.CreateReading(sensorName);
+        }
     }
 }
