@@ -1,6 +1,6 @@
 # Aplicacion de Sensores de una Fabrica
 
-Esta aplicacion Desarrollada en 5 lenguajes diferentes: SQL Server, C#, HTML, CSS Y JavaScript nos permite realizar el mantenimiento de unos sensores de temperatura ubicados estrategicamente en las distintas areas de una fabrica ficticia.
+Esta aplicacion desarrollada en 5 lenguajes diferentes: SQL Server, C#, HTML, CSS Y JavaScript nos permite realizar el mantenimiento de unos sensores de temperatura ubicados estrategicamente en las distintas areas de una fabrica ficticia.
 
 Esta app cuenta con un algoritmo de logueo el cual valida si el usuario esta creado en la base de datos o no, si sus credenciales coinciden puede acceder al sistema, en caso que no la aplicacion lanzara un error de datos incorrectos.
 
@@ -8,3 +8,7 @@ Luego de ingresar al sistema se podra, como se menciono anteriormente, realizar 
 
 Una vez realizado dicho mantenimiento hacia los sensores a gusto del usuario, podra consultar las lecturas de los sensores atraves de un algoritmo de fechas, se ingresan 2 fechas en un rango para determinar la busqueda de la lectura de dicho sensor, tambien
 la aplicacion es capaz de generar una lectura hacia un sensor ingresando su nombre y automaticamente se generara con una temperatura.
+
+En la carpeta Backend se encuentra el proyecto relacionado con toda la logica de la Api.
+En la carpeta DataBase se encuentra el script de la base datos para que cualquiera pueda crearla.
+En la carpeta Frontend se encuentran las paginas HTML que contiene la interfaz visual de la Api, estas cuentan con ayuda de desarrollo con Bootstrap y JQUERY.
