@@ -1,4 +1,4 @@
-# Aplicacion de Sensores de una Fabrica
+# Api de Sensores de una Fabrica
 
 Esta aplicacion desarrollada en 5 lenguajes diferentes: SQL Server, C#, HTML, CSS Y JavaScript nos permite realizar el mantenimiento de unos sensores de temperatura ubicados estrategicamente en las distintas areas de una fabrica ficticia.
 
