@@ -10,5 +10,7 @@ Una vez realizado dicho mantenimiento hacia los sensores a gusto del usuario, po
 la aplicacion es capaz de generar una lectura hacia un sensor ingresando su nombre y automaticamente se generara con una temperatura.
 
 En la carpeta Backend se encuentra el proyecto relacionado con toda la logica de la Api.
+
 En la carpeta DataBase se encuentra el script de la base datos para que cualquiera pueda crearla.
+
 En la carpeta Frontend se encuentran las paginas HTML que contiene la interfaz visual de la Api, estas cuentan con ayuda de desarrollo con Bootstrap y JQUERY.
