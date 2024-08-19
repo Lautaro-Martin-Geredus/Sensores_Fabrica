@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Lecturas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    .navbar {
+        background-color: #007bff; 
+    }
+    .navbar-nav .nav-link {
+        color: white !important; 
+    }
+    .navbar-nav .nav-link:hover {
+        color: #f8f9fa !important; 
+    }
+    .btn-delete {
+        background-color: #dc3545;
+        color: white;
+    }
+    .btn-delete:hover {
+        background-color: #c82333;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Welcome.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Sensors.html">Sensors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Reading.html">Readings</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="dateRangeForm">
+                    <div class="mb-3">
+                        <label for="startDate" class="form-label">Fecha de Inicio</label>
+                        <input type="date" class="form-control" id="startDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="endDate" class="form-label">Fecha de Fin</label>
+                        <input type="date" class="form-control" id="endDate" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Consultar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <table class="table table-striped table-bordered" id="readingsTable">
+                <thead>
+                    <tr>
+                        <th>Sensor</th>
+                        <th>Fecha de Lectura</th>
+                        <th>Temperatura</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $('#dateRangeForm').on('submit', function(event) 
+        {
+            event.preventDefault();
+
+            const sDate = $('#startDate').val();
+            const eDate = $('#endDate').val();
+
+            $.ajax(
+                {
+                url: `https://localhost:7058/api/Reading/GetReadingsByDates?startDate=${sDate}&endDate=${eDate}`,
+                method: 'GET',
+                success: function(response) 
+                {
+                    const tableBody = $('#readingsTable tbody');
+                    tableBody.empty();
+
+                    response.forEach(r => 
+                    {
+                        const row = `
+                            <tr>
+                                <td>${r.sensorName}</td>
+                                <td>${r.readingDate}</td>
+                                <td>${r.value}</td>
+                            </tr>
+                        `;
+                        tableBody.append(row);
+                    });
+                },
+                error: function(error) 
+                {
+                    alert('Error al obtener los datos: ' + error.responseText);
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>
