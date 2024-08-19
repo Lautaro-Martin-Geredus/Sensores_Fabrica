@@ -13,4 +13,4 @@ En la carpeta Backend se encuentra el proyecto relacionado con toda la logica de
 
 En la carpeta DataBase se encuentra el script de la base datos para que cualquiera pueda crearla.
 
-En la carpeta Frontend se encuentran las paginas HTML que contiene la interfaz visual de la Api, estas cuentan con ayuda de desarrollo con Bootstrap 5 y JQUERY.
+En la carpeta Frontend se encuentran las paginas HTML que contiene la interfaz visual de la Api, estas cuentan con ayuda de desarrollo con Bootstrap 5 y JQUERY (Ajax).
