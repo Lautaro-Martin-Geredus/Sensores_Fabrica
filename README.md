@@ -2,7 +2,10 @@
 
 Esta aplicacion desarrollada en 5 lenguajes diferentes nos permite realizar el mantenimiento de unos sensores de temperatura ubicados estrategicamente en las distintas areas de una fabrica ficticia.
 
-![Descripción de la imagen](Images/image1.png)
+![Presentacion](Images/image1.png)
+![Sensores](Images/image2.png)
+![Lecturas](Images/image3.png)
+
 
 # Funcionamiento
 
