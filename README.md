@@ -19,6 +19,6 @@ En la carpeta DataBase se encuentra el script de la base datos para que cualquie
 
 En la carpeta Frontend se encuentran las paginas HTML que contiene la interfaz visual de la Api, estas cuentan con ayuda de desarrollo con Bootstrap 5 y JQUERY (Ajax).
 
-# Lenguajes
+# Lenguajes implementados
 
 SQL Server, C# (Entity Framework), HTML, CSS Y JavaScript
