@@ -19,12 +19,13 @@ namespace Api_Sensors.Repository.Impl
         public async Task<List<ReadingDto>> GetReadingsByDates(DateOnly startDate, DateOnly endDate)
         {
             var readings = await _context.Readings
+                .Include(r => r.Sensor)
                 .Where(x => x.ReadingDate >= startDate && x.ReadingDate <= endDate)
                 .ToListAsync();
 
             var readingDto = readings.Select(x => new ReadingDto
             {
-                SensorName = x.Sensor.Name,
+                SensorName = x.Sensor?.Name,
                 ReadingDate = x.ReadingDate,
                 Value = x.Value,
             }).ToList();

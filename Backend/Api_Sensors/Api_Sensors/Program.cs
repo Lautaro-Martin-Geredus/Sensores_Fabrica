@@ -27,6 +27,9 @@ builder.Services.AddScoped<ISensorService, SensorServiceImpl>();
 builder.Services.AddScoped<IUserRepository, UserRepositoryImpl>();
 builder.Services.AddScoped<IUserService, UserServiceImpl>();
 
+builder.Services.AddScoped<IReadingRepository, ReadingRepositoryImpl>();
+builder.Services.AddScoped<IReadingService, ReadingServiceImpl>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -9,19 +9,22 @@ namespace Api_Sensors.Controllers
     [ApiController]
     public class ReadingController : ControllerBase
     {
-        private readonly IReadingRepository _readingRepository;
+        private readonly IReadingService _readingService;
         
-        public ReadingController(IReadingRepository readingRepository)
+        public ReadingController(IReadingService readingService)
         {
-            _readingRepository = readingRepository;
+            _readingService = readingService;
         }
 
         [HttpGet("GetReadingsByDates")]
-        public async Task<ActionResult<ReadingDto>> GetReadings([FromQuery] DateOnly startDate, [FromQuery] DateOnly endDate)  // Error aqui al mandar las fechas
+        public async Task<ActionResult<List<ReadingDto>>> GetReadings([FromQuery] string startDate, [FromQuery] string endDate)
         {
             try
             {
-                var readings = await _readingRepository.GetReadingsByDates(startDate, endDate);
+                DateOnly start = DateOnly.Parse(startDate);
+                DateOnly end = DateOnly.Parse(endDate);
+
+                var readings = await _readingService.GetReadingsByDates(start, end);
 
                 if (readings == null || !readings.Any())
                 {
@@ -35,5 +38,6 @@ namespace Api_Sensors.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
     }
 }
