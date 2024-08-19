@@ -10,7 +10,8 @@ Esta aplicacion desarrollada en 5 lenguajes diferentes nos permite realizar el m
 
 # Funcionamiento
 
-Esta app cuenta con un algoritmo de logueo el cual valida si el usuario esta registrado en la base de datos o no, si sus credenciales coinciden puede acceder al sistema, en caso que no la aplicacion lanzara un error de datos incorrectos.
+Esta app cuenta con un algoritmo de logueo el cual valida si el usuario esta registrado en la base de datos o no, si sus credenciales coinciden puede acceder al sistema, en caso que no la aplicacion lanzara un error de datos incorrectos. Esta misma tambien
+permite crear un usuario para que pueda acceder al sistema.
 
 Luego de ingresar al sistema se podra, como se menciono anteriormente, realizar un mantenimiento de los sensores, para esto se desarrollo un CRUD para la entidad Sensores que nos permite crearlos, obtenerlos, modificarlos y eliminarlos.
 
