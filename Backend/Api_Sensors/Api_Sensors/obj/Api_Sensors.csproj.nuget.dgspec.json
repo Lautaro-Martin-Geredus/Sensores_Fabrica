@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LG\\Desktop\\Apis Propias\\Api_Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\Api_Sensors.csproj": {}
+    "C:\\Users\\LG\\Desktop\\Apis Propias\\Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\Api_Sensors.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LG\\Desktop\\Apis Propias\\Api_Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\Api_Sensors.csproj": {
+    "C:\\Users\\LG\\Desktop\\Apis Propias\\Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\Api_Sensors.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LG\\Desktop\\Apis Propias\\Api_Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\Api_Sensors.csproj",
+        "projectUniqueName": "C:\\Users\\LG\\Desktop\\Apis Propias\\Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\Api_Sensors.csproj",
         "projectName": "Api_Sensors",
-        "projectPath": "C:\\Users\\LG\\Desktop\\Apis Propias\\Api_Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\Api_Sensors.csproj",
+        "projectPath": "C:\\Users\\LG\\Desktop\\Apis Propias\\Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\Api_Sensors.csproj",
         "packagesPath": "C:\\Users\\LG\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LG\\Desktop\\Apis Propias\\Api_Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\obj\\",
+        "outputPath": "C:\\Users\\LG\\Desktop\\Apis Propias\\Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LG\\AppData\\Roaming\\NuGet\\NuGet.Config",

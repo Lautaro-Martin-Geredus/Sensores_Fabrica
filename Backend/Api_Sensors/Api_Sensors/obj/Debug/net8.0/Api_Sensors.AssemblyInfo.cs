@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Api_Sensors")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b6f7ee20f89c2b2c38df2480058e4b7da78e74a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a98599b2bab0652a7f0e35cf775a5f590d66a85")]
 [assembly: System.Reflection.AssemblyProductAttribute("Api_Sensors")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Api_Sensors")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
