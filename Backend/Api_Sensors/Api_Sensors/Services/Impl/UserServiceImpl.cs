@@ -6,7 +6,7 @@ namespace Api_Sensors.Services.Impl
 {
     public class UserServiceImpl : IUserService
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserRepository _userRepository;  // Mejorar todo lo relacionado con el tema del Login.
 
         public UserServiceImpl(IUserRepository userRepository)
         {

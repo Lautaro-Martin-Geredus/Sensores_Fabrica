@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F2elyFEmJ4s=",
+  "dgSpecHash": "gNdf2qeEi9M=",
   "success": true,
-  "projectFilePath": "C:\\Users\\LG\\Desktop\\Apis Propias\\Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\Api_Sensors.csproj",
+  "projectFilePath": "C:\\Users\\LG\\Desktop\\Proyectos\\Sensores_Fabrica\\Backend\\Api_Sensors\\Api_Sensors\\Api_Sensors.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LG\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\LG\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
