@@ -6,7 +6,7 @@ namespace Api_Sensors.Services.Impl
 {
     public class UserServiceImpl : IUserService
     {
-        private readonly IUserRepository _userRepository;  // Mejorar todo lo relacionado con el tema del Login, que la contraseña no sea "int".
+        private readonly IUserRepository _userRepository;  
 
         public UserServiceImpl(IUserRepository userRepository)
         {

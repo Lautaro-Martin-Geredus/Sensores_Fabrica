@@ -23,25 +23,25 @@ public partial class ApiSensoresContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=api_sensores_fabrica;Integrated Security=True;TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=db_sensors;Integrated Security=True;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Reading>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Readings__3214EC074572A959");
+            entity.HasKey(e => e.Id).HasName("PK__Readings__3214EC077A0424CF");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
 
             entity.HasOne(d => d.Sensor).WithMany(p => p.Readings)
                 .HasForeignKey(d => d.SensorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Readings__Sensor__145C0A3F");
+                .HasConstraintName("FK__Readings__Sensor__15502E78");
         });
 
         modelBuilder.Entity<Sensor>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Sensors__3214EC07B03A0831");
+            entity.HasKey(e => e.Id).HasName("PK__Sensors__3214EC07B42A30C2");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.Description)
@@ -57,7 +57,7 @@ public partial class ApiSensoresContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3214EC0739DAB160");
+            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07317B0F85");
 
             entity.ToTable("User");
 
@@ -69,6 +69,9 @@ public partial class ApiSensoresContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Name)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.Password)
                 .HasMaxLength(255)
                 .IsUnicode(false);
         });

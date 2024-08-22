@@ -19,7 +19,7 @@ namespace Api_Sensors.Controllers
         [HttpPost("LoggingUser")]
         public async Task<ActionResult<bool>> LoggingUser([FromBody] LoginRequest loginRequest)
         {
-            if (loginRequest == null || string.IsNullOrEmpty(loginRequest.Email) || loginRequest.Password == 0)
+            if (loginRequest == null || string.IsNullOrEmpty(loginRequest.Email) || loginRequest.Password == "")
             {
                 return BadRequest("Invalid login request data.");
             }
