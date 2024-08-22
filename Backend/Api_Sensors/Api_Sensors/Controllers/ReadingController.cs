@@ -17,14 +17,14 @@ namespace Api_Sensors.Controllers
         }
 
         [HttpGet("GetReadingsByDates")]
-        public async Task<ActionResult<List<ReadingDto>>> GetReadings([FromQuery] string startDate, [FromQuery] string endDate)
+        public async Task<ActionResult<List<ReadingDto>>> GetReadings([FromQuery] string sensorName, [FromQuery] string startDate, [FromQuery] string endDate)
         {
             try
             {
                 DateOnly start = DateOnly.Parse(startDate);
                 DateOnly end = DateOnly.Parse(endDate);
 
-                var readings = await _readingService.GetReadingsByDates(start, end);
+                var readings = await _readingService.GetReadingsByDates(sensorName, start, end);
 
                 if (readings == null || !readings.Any())
                 {
