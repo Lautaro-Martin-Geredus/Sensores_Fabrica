@@ -32,4 +32,7 @@ SQL Server, C#, HTML, CSS Y JavaScript
 
 #
 
-
+![Presentacion](Images/1.png)
+![Sensores](Images/2.png)
+![Lecturas](Images/3.png)
+![Lecturas](Images/4.png)
