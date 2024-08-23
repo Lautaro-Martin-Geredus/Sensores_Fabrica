@@ -29,3 +29,9 @@ En la carpeta Frontend se encuentran las paginas HTML que contiene la interfaz v
 # Lenguajes implementados
 
 SQL Server, C#, HTML, CSS Y JavaScript
+
+# Actualizacion 22-08
+
+1. Se mejoro la validacion para que cualquier usuario no autorizado no pueda acceder al mantenimiento de los sensores.
+2. Ahora se puede visualizar el correo del usuario que inicio sesion en la barra de navegacion, este mismo tambien permite mantenerse en linea o cerrar sesion con una ventana modal.
+3. Ahora la busqueda de Lecturas se hace con el nombre del sensor para optimizar los informes de temperatura.
