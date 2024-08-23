@@ -2,12 +2,6 @@
 
 Esta aplicacion desarrollada en 5 lenguajes diferentes nos permite realizar el mantenimiento de unos sensores de temperatura ubicados estrategicamente en las distintas areas de una fabrica ficticia.
 
-
-![Presentacion](Images/image1.png)
-![Sensores](Images/image2.png)
-![Lecturas](Images/image3.png)
-
-
 # Funcionamiento
 
 Esta app cuenta con un algoritmo de logueo el cual valida si el usuario esta registrado en la base de datos o no, si sus credenciales coinciden puede acceder al sistema, en caso que no la aplicacion lanzara un error de datos incorrectos. Esta misma tambien
@@ -35,3 +29,9 @@ SQL Server, C#, HTML, CSS Y JavaScript
 1. Se mejoro la validacion para que cualquier usuario no autorizado no pueda acceder al mantenimiento de los sensores.
 2. Ahora se puede visualizar el correo del usuario que inicio sesion en la barra de navegacion, este mismo tambien permite mantenerse en linea o cerrar sesion con una ventana modal.
 3. Ahora la busqueda de Lecturas se hace con el nombre del sensor para optimizar los informes de temperatura.
+
+
+![Presentacion](Images/login.png)
+![Sensores](Images/crud.png)
+![Lecturas](Images/modal.png)
+![Lecturas](Images/readings.png)
