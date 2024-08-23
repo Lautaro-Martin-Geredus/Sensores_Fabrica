@@ -10,6 +10,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <style>
+    .login-container 
+    {
+        width: 100%;
+        max-width: 400px;
+        padding: 15px;
+        margin: auto;
+        margin-top: 100px;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .links 
+    {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
     .navbar {
         background-color: #007bff; 
     }
@@ -28,13 +46,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto"> 
                 <li class="nav-item">
+                    <a class="nav-link" href="Sensors.html" id="sensorsLink">Sensors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Reading.html" id="readingsLink">Readings</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="Welcome.html">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Sensors.html">Sensors</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Reading.html">Readings</a>
                 </li>
             </ul>
         </div>
@@ -75,8 +93,22 @@
     </div>
 
     <script>
+        $(document).ready(function()
+        {
+            const isLoggedIn = sessionStorage.getItem('userEmail') !== null;
+
+            if(!isLoggedIn)
+            {
+                $('#sensorsLink, #readingsLink').on('click', function(e)
+                {
+                    e.preventDefault();
+                    alert('No access to this page.');
+                });
+            }
+        })
+
         $("#registerForm").on("submit", function(event)
-    {
+        {
         event.preventDefault();
 
         const name = $("#name").val();
