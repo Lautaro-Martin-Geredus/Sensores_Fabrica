@@ -32,7 +32,4 @@ SQL Server, C#, HTML, CSS Y JavaScript
 
 #
 
-![Presentacion](Images/login.png)
-![Sensores](Images/crud.png)
-![Lecturas](Images/modal.png)
-![Lecturas](Images/readings.png)
+
