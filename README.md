@@ -30,8 +30,6 @@ SQL Server, C#, HTML, CSS Y JavaScript
 2. Ahora se puede visualizar el correo del usuario que inicio sesion en la barra de navegacion, este mismo tambien permite mantenerse en linea o cerrar sesion con una ventana modal.
 3. Ahora la busqueda de Lecturas se hace con el nombre del sensor para optimizar los informes de temperatura.
 
+#
 
-![Presentacion](Images/login.png)
-![Sensores](Images/crud.png)
-![Lecturas](Images/modal.png)
-![Lecturas](Images/readings.png)
+
