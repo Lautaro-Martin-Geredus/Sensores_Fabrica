@@ -31,7 +31,3 @@ SQL Server, C#, HTML, CSS Y JavaScript
 3. Ahora la busqueda de Lecturas se hace con el nombre del sensor para optimizar los informes de temperatura.
 
 
-![Presentacion](Images/login.png)
-![Sensores](Images/crud.png)
-![Lecturas](Images/modal.png)
-![Lecturas](Images/readings.png)
