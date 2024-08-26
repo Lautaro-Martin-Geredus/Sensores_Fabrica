@@ -22,7 +22,7 @@ En la carpeta Frontend se encuentran las paginas HTML que contiene la interfaz v
 
 # Lenguajes implementados
 
-SQL Server, C#, HTML, CSS Y JavaScript
+SQL Server, C# (Entity Framework), HTML, CSS Y JavaScript
 
 # Actualizacion 22-08
 
@@ -32,4 +32,7 @@ SQL Server, C#, HTML, CSS Y JavaScript
 
 #
 
-
+![Presentacion](Images/1.png)
+![Sensores](Images/2.png)
+![Lecturas](Images/3.png)
+![Lecturas](Images/4.png)
